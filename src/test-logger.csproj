@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>WayneLabs.TestLogger</PackageId>
+    <PackageId>Dubstep.TestUtilities.TestLogger</PackageId>
     <Authors>Wayne Wang</Authors>
-    <PackageTags>TestLogger;WayneLabs.TestLogger;Unit Test;ILogger</PackageTags>
+    <PackageTags>TestLogger;Dubstep.TestUtilities;Unit Test;ILogger</PackageTags>
     <Description>
       Create a ILogger&lt;T&gt; instance and assert log calls.
     </Description>
     <TargetFrameworks>netstandard2.0;net5.0;netcoreapp3.1</TargetFrameworks>
-    <AssemblyName>WayneLabs.TestLogger</AssemblyName>
-    <RootNamespace>WayneLabs.TestLogger</RootNamespace>
+    <AssemblyName>Dubstep.TestUtilities.TestLogger</AssemblyName>
+    <RootNamespace>Dubstep.TestUtilities.TestLogger</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

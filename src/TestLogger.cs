@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 
-namespace WayneLabs.TestLogger
+namespace Dubstep.TestUtilities
 {
     public class TestLogger<T> : ILogger<T>
     {
