@@ -25,10 +25,13 @@ jobs:
       run: dotnet restore
 
     - name: dotnet build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore -c Release
+
+    - name: dotnet test
+      run: dotnet test --no-build -c Release
 
     - name: dotnet pack
-      run: dotnet pack --no-restore -c Release --include-source --include-symbols -p:PackageVersion='${{ env.CI_REF_NAME }}' -p:SymbolPackageFormat=snupkg
+      run: dotnet pack --no-build -c Release --include-source --include-symbols -p:PackageVersion='${{ env.CI_REF_NAME }}' -p:SymbolPackageFormat=snupkg
       
     - name: dotnet nuget push
       run: dotnet nuget push **/*.nupkg --api-key ${{secrets.NUGET_ORG_API_KEY}} --source https://api.nuget.org/v3/index.json
