@@ -1,33 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Dubstep.TestUtilities.TestLogger;
 using Microsoft.Extensions.Logging;
 
 namespace Dubstep.TestUtilities
 {
     public class TestLogger<T> : ILogger<T>
     {
-        public List<string> Messages { get; }
-        public List<Exception> Exceptions { get; }
+        public List<LogStatement> LogStatements { get; set; }
+
         public TestLogger()
         {
-            Messages = new List<string>();
-            Exceptions = new List<Exception>();
+            LogStatements = new List<LogStatement>() { };
         }
+
+        public LogStatement LastStatement => LogStatements.LastOrDefault();
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            if (exception != null)
+            var statement = new LogStatement()
             {
-                Exceptions.Add(exception);
-            }
+                Level = logLevel,
+                Exception = exception,
+                Message = formatter(state, exception)
+            };
 
-            var result = formatter(state, exception);
-            Messages.Add(result);
+            LogStatements.Add(statement);
         }
 
         public bool IsEnabled(LogLevel logLevel)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public IDisposable BeginScope<TState>(TState state)
