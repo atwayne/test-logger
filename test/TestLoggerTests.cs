@@ -15,6 +15,17 @@ namespace test_logger.tests
         }
 
         [Test]
+        public void Should_Return_Null_LastStatement() {
+            // Arrange
+
+            // Act
+            var actual = targetLogger.LastStatement;
+
+            // Assert
+            Assert.IsNull(actual);
+        }
+
+        [Test]
         [TestCase(LogLevel.Trace)]
         [TestCase(LogLevel.Debug)]
         [TestCase(LogLevel.Information)]
