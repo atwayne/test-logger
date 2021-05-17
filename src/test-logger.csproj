@@ -7,6 +7,8 @@
     <Description>
       Create a ILogger&lt;T&gt; instance and assert log calls.
     </Description>
+    <RepositoryUrl>https://github.com/atwayne/test-logger.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType> 
     <TargetFrameworks>netstandard2.0;net5.0;netcoreapp3.1</TargetFrameworks>
     <AssemblyName>Dubstep.TestUtilities.TestLogger</AssemblyName>
     <RootNamespace>Dubstep.TestUtilities.TestLogger</RootNamespace>
